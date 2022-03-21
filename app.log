@@ -1,0 +1,350 @@
+2022-03-20 15:07:00,024 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-20 15:07:00,046 - waitress - INFO - Serving on http://0.0.0.0:8080
+2022-03-20 15:07:33,232 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-20 15:07:33,254 - waitress - INFO - Serving on http://0.0.0.0:8080
+2022-03-20 15:10:28,037 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-20 15:10:28,060 - waitress - INFO - Serving on http://0.0.0.0:8080
+2022-03-20 15:10:30,972 - api - ERROR - Exception on /api/users/12345 [GET]
+Traceback (most recent call last):
+  File "C:\Users\egork\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\egork\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\egork\AppData\Local\Programs\Python\Python310\lib\site-packages\flask_restful\__init__.py", line 467, in wrapper
+    resp = resource(*args, **kwargs)
+  File "C:\Users\egork\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\views.py", line 84, in view
+    return current_app.ensure_sync(self.dispatch_request)(*args, **kwargs)
+  File "C:\Users\egork\AppData\Local\Programs\Python\Python310\lib\site-packages\flask_restful\__init__.py", line 582, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "D:\Personal\Projects\InnoID\API\api\tools\requests.py", line 35, in decorator
+    return func(*args, **kwargs, user_fields=decode_number(app.allowed_user_fields))
+  File "D:\Personal\Projects\InnoID\API\api\blueprints\users.py", line 38, in get
+    raise errors.UserNotFoundError
+api.tools.errors.UserNotFoundError
+2022-03-20 15:11:15,252 - api - ERROR - Exception on /api/apps/2 [GET]
+Traceback (most recent call last):
+  File "C:\Users\egork\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\egork\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\egork\AppData\Local\Programs\Python\Python310\lib\site-packages\flask_restful\__init__.py", line 467, in wrapper
+    resp = resource(*args, **kwargs)
+  File "C:\Users\egork\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\views.py", line 84, in view
+    return current_app.ensure_sync(self.dispatch_request)(*args, **kwargs)
+  File "C:\Users\egork\AppData\Local\Programs\Python\Python310\lib\site-packages\flask_restful\__init__.py", line 582, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "D:\Personal\Projects\InnoID\API\api\tools\requests.py", line 35, in decorator
+    return func(*args, **kwargs, user_fields=decode_number(app.allowed_user_fields))
+  File "D:\Personal\Projects\InnoID\API\api\blueprints\apps.py", line 27, in get
+    raise errors.AppNotFoundError
+api.tools.errors.AppNotFoundError
+2022-03-20 15:15:26,001 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-20 15:15:26,033 - werkzeug - INFO -  * Restarting with stat
+2022-03-20 15:15:26,681 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-20 15:15:26,708 - werkzeug - WARNING -  * Debugger is active!
+2022-03-20 15:15:26,710 - werkzeug - INFO -  * Debugger PIN: 127-000-903
+2022-03-20 15:15:26,755 - werkzeug - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2022-03-20 15:15:34,290 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-20 15:15:34,316 - werkzeug - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2022-03-20 15:15:41,382 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2022 15:15:41] "GET /api/apps/1 HTTP/1.1" 200 -
+2022-03-20 15:15:43,760 - api - ERROR - Exception on /api/apps/2 [GET]
+Traceback (most recent call last):
+  File "C:\Users\egork\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\egork\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\egork\AppData\Local\Programs\Python\Python310\lib\site-packages\flask_restful\__init__.py", line 467, in wrapper
+    resp = resource(*args, **kwargs)
+  File "C:\Users\egork\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\views.py", line 84, in view
+    return current_app.ensure_sync(self.dispatch_request)(*args, **kwargs)
+  File "C:\Users\egork\AppData\Local\Programs\Python\Python310\lib\site-packages\flask_restful\__init__.py", line 582, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "D:\Personal\Projects\InnoID\API\api\tools\requests.py", line 35, in decorator
+    return func(*args, **kwargs, user_fields=decode_number(app.allowed_user_fields))
+  File "D:\Personal\Projects\InnoID\API\api\blueprints\apps.py", line 27, in get
+    raise errors.AppNotFoundError
+api.tools.errors.AppNotFoundError
+2022-03-20 15:15:43,762 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2022 15:15:43] "[35m[1mGET /api/apps/2 HTTP/1.1[0m" 500 -
+2022-03-20 15:17:03,266 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-20 15:17:03,295 - werkzeug - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2022-03-20 15:17:08,992 - api - ERROR - Exception on /api/apps/2 [GET]
+Traceback (most recent call last):
+  File "C:\Users\egork\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1516, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\egork\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\app.py", line 1502, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "C:\Users\egork\AppData\Local\Programs\Python\Python310\lib\site-packages\flask_restful\__init__.py", line 467, in wrapper
+    resp = resource(*args, **kwargs)
+  File "C:\Users\egork\AppData\Local\Programs\Python\Python310\lib\site-packages\flask\views.py", line 84, in view
+    return current_app.ensure_sync(self.dispatch_request)(*args, **kwargs)
+  File "C:\Users\egork\AppData\Local\Programs\Python\Python310\lib\site-packages\flask_restful\__init__.py", line 582, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "D:\Personal\Projects\InnoID\API\api\tools\requests.py", line 35, in decorator
+    return func(*args, **kwargs, user_fields=decode_number(app.allowed_user_fields))
+  File "D:\Personal\Projects\InnoID\API\api\blueprints\apps.py", line 27, in get
+    raise errors.AppNotFoundError
+api.tools.errors.AppNotFoundError
+2022-03-20 15:17:08,994 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2022 15:17:08] "[35m[1mGET /api/apps/2 HTTP/1.1[0m" 500 -
+2022-03-20 15:18:07,508 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-20 15:18:07,537 - werkzeug - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2022-03-20 15:18:11,542 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2022 15:18:11] "[35m[1mGET /api/apps/2 HTTP/1.1[0m" 500 -
+2022-03-20 15:18:11,546 - werkzeug - ERROR - Error on request:
+Traceback (most recent call last):
+  File "C:\Users\egork\AppData\Local\Programs\Python\Python310\Lib\site-packages\werkzeug\serving.py", line 324, in run_wsgi
+    execute(self.server.app)
+  File "C:\Users\egork\AppData\Local\Programs\Python\Python310\Lib\site-packages\werkzeug\serving.py", line 313, in execute
+    application_iter = app(environ, start_response)
+  File "C:\Users\egork\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask\app.py", line 2091, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "C:\Users\egork\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask\app.py", line 2076, in wsgi_app
+    response = self.handle_exception(e)
+  File "C:\Users\egork\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_restful\__init__.py", line 271, in error_router
+    return original_handler(e)
+  File "C:\Users\egork\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask_restful\__init__.py", line 271, in error_router
+    return original_handler(e)
+  File "C:\Users\egork\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask\app.py", line 2073, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\egork\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask\app.py", line 1519, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "C:\Users\egork\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask\app.py", line 1538, in finalize_request
+    response = self.make_response(rv)
+  File "C:\Users\egork\AppData\Local\Programs\Python\Python310\Lib\site-packages\flask\app.py", line 1730, in make_response
+    raise TypeError(
+TypeError: The view function did not return a valid response. The return type must be a string, dict, tuple, Response instance, or WSGI callable, but it was a int.
+2022-03-20 15:18:29,849 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-20 15:18:29,880 - werkzeug - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2022-03-20 15:18:31,437 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2022 15:18:31] "[33mGET /api/apps/2 HTTP/1.1[0m" 404 -
+2022-03-20 15:19:47,808 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-20 15:19:47,829 - waitress - INFO - Serving on http://0.0.0.0:8080
+2022-03-20 15:48:23,749 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-20 15:48:23,778 - waitress - INFO - Serving on http://0.0.0.0:8080
+2022-03-20 15:48:23,784 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2022-03-20 15:48:23,784 - werkzeug - INFO -  * Running on http://10.91.50.103:8002/ (Press CTRL+C to quit)
+2022-03-20 15:48:59,415 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2022 15:48:59] "[33mGET / HTTP/1.1[0m" 404 -
+2022-03-20 15:48:59,562 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2022 15:48:59] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2022-03-20 15:49:03,334 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2022 15:49:03] "GET /metrics HTTP/1.1" 200 -
+2022-03-20 18:24:12,746 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-20 18:24:12,788 - werkzeug - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2022-03-20 18:24:14,640 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2022 18:24:14] "[33mGET / HTTP/1.1[0m" 404 -
+2022-03-20 18:24:14,810 - werkzeug - INFO - 127.0.0.1 - - [20/Mar/2022 18:24:14] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2022-03-20 17:07:36,160 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-20 17:07:47,770 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-20 17:09:05,276 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-20 17:11:16,704 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-20 17:11:16,746 - werkzeug - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2022-03-20 17:11:16,748 - werkzeug - INFO -  * Restarting with stat
+2022-03-20 17:11:17,442 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-20 17:11:17,493 - werkzeug - WARNING -  * Debugger is active!
+2022-03-20 17:11:17,495 - werkzeug - INFO -  * Debugger PIN: 743-805-446
+2022-03-20 17:12:07,099 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-20 17:12:07,143 - werkzeug - INFO -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2022-03-20 17:12:07,145 - werkzeug - INFO -  * Restarting with stat
+2022-03-20 17:12:08,227 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-20 17:12:08,270 - werkzeug - WARNING -  * Debugger is active!
+2022-03-20 17:12:08,271 - werkzeug - INFO -  * Debugger PIN: 743-805-446
+2022-03-20 17:25:30,403 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-20 17:25:30,456 - werkzeug - WARNING -  * Debugger is active!
+2022-03-20 17:25:30,457 - werkzeug - INFO -  * Debugger PIN: 681-004-279
+2022-03-20 17:26:23,259 - werkzeug - INFO - 172.23.0.1 - - [20/Mar/2022 17:26:23] "[31m[1mGET /api/apps/1 HTTP/1.1[0m" 401 -
+2022-03-20 17:26:28,853 - werkzeug - INFO - 172.23.0.1 - - [20/Mar/2022 17:26:28] "[31m[1mGET /api/apps HTTP/1.1[0m" 401 -
+2022-03-20 17:34:53,370 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-20 17:34:53,450 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2022-03-20 17:34:53,454 - werkzeug - INFO -  * Running on http://172.24.0.2:5000/ (Press CTRL+C to quit)
+2022-03-20 17:34:53,458 - werkzeug - INFO -  * Restarting with stat
+2022-03-20 17:34:54,376 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-20 17:34:54,418 - werkzeug - WARNING -  * Debugger is active!
+2022-03-20 17:34:54,419 - werkzeug - INFO -  * Debugger PIN: 612-610-782
+2022-03-20 17:35:26,152 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-20 17:35:26,205 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2022-03-20 17:35:26,205 - werkzeug - INFO -  * Running on http://172.24.0.2:5000/ (Press CTRL+C to quit)
+2022-03-20 17:35:26,208 - werkzeug - INFO -  * Restarting with stat
+2022-03-20 17:35:26,862 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-20 17:35:26,902 - werkzeug - WARNING -  * Debugger is active!
+2022-03-20 17:35:26,903 - werkzeug - INFO -  * Debugger PIN: 171-215-668
+2022-03-20 17:36:04,536 - werkzeug - INFO - 172.24.0.1 - - [20/Mar/2022 17:36:04] "[33mGET / HTTP/1.1[0m" 404 -
+2022-03-20 17:36:04,693 - werkzeug - INFO - 172.24.0.1 - - [20/Mar/2022 17:36:04] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2022-03-20 17:37:19,960 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-20 17:37:20,010 - werkzeug - WARNING -  * Running on all addresses.
+   WARNING: This is a development server. Do not use it in a production deployment.
+2022-03-20 17:37:20,011 - werkzeug - INFO -  * Running on http://172.24.0.2:5000/ (Press CTRL+C to quit)
+2022-03-20 17:37:20,013 - werkzeug - INFO -  * Restarting with stat
+2022-03-20 17:37:20,722 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-20 17:37:20,760 - werkzeug - WARNING -  * Debugger is active!
+2022-03-20 17:37:20,761 - werkzeug - INFO -  * Debugger PIN: 662-201-826
+2022-03-20 17:37:27,233 - werkzeug - INFO - 172.24.0.1 - - [20/Mar/2022 17:37:27] "[31m[1mGET /api/apps HTTP/1.1[0m" 401 -
+2022-03-21 08:59:46,541 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 08:59:46,548 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 08:59:46,573 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 08:59:46,574 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:04:47,563 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:04:47,563 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:04:47,670 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:04:47,812 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:05:30,426 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:05:30,426 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:05:30,649 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:05:30,650 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:05:51,449 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:05:51,450 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:05:51,455 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:05:51,561 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:06:36,593 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:06:36,605 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:06:36,645 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:06:36,693 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:12:30,902 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:12:30,912 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:12:31,100 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:12:31,299 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:13:53,370 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:13:53,372 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:13:53,650 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:13:53,676 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:19:03,138 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:19:03,139 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:19:03,277 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:19:03,355 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:25:21,236 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:25:21,236 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:25:21,354 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:25:21,413 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:26:43,148 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:26:43,149 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:26:43,167 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:26:43,398 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:26:53,896 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:26:53,897 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:26:53,899 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:26:54,136 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:42:03,216 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:42:03,244 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:42:03,247 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:42:03,543 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:43:04,129 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:43:04,284 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:43:04,291 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:43:04,434 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:43:51,340 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:43:51,342 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:43:51,378 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:43:51,416 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:44:03,057 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:44:03,060 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:44:03,285 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:44:03,494 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:44:33,134 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:44:33,135 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:44:33,389 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:44:33,445 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:54:07,715 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:54:07,716 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:54:07,803 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:54:07,873 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:57:15,613 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:57:15,612 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:57:15,617 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 09:57:15,808 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 15:34:06,181 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 15:34:06,191 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 15:34:06,276 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 15:34:06,601 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 15:34:06,636 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 15:34:06,648 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 15:34:06,746 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 15:34:06,756 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 15:34:06,781 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 15:38:53,905 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 15:38:54,008 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 15:38:54,054 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 15:38:54,251 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 15:38:54,310 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 15:38:54,325 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 15:38:54,434 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 15:38:54,453 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 15:38:54,458 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 15:45:19,525 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 15:45:19,598 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 15:45:19,951 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 15:45:19,954 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 15:45:20,009 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 15:45:20,168 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 15:45:20,170 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 15:45:20,190 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 15:45:20,265 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:03:43,287 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:03:43,305 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:03:43,486 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:03:43,565 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:03:43,611 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:03:43,832 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:03:43,847 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:03:43,964 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:03:44,001 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:06:26,671 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:06:26,862 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:06:26,865 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:06:26,912 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:06:26,925 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:06:26,951 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:06:27,197 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:06:27,284 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:06:27,315 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:07:42,663 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:07:42,668 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:07:42,710 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:07:42,752 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:07:43,047 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:07:43,147 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:07:43,214 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:07:43,217 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:07:43,321 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:15:08,673 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:15:08,767 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:15:08,934 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:15:08,935 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:15:09,008 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:15:09,052 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:15:09,072 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:15:09,155 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:15:09,179 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:18:03,267 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:18:03,500 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:18:03,529 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:18:03,634 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:18:03,813 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:18:03,905 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:18:03,919 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:18:03,994 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:18:04,039 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:23:21,791 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:23:21,806 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:23:21,878 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:23:21,979 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:23:21,982 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:23:22,129 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:23:22,289 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:23:22,382 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:23:22,416 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:27:32,250 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:28:11,088 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:28:11,107 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:28:11,235 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:28:11,383 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:28:11,448 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:28:11,580 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:28:11,598 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:28:11,610 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:28:11,664 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:29:39,118 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:38:22,281 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:38:22,292 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:38:22,463 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:38:22,556 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:38:22,605 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:38:22,656 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:38:22,798 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:38:22,801 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
+2022-03-21 16:38:22,892 - app - INFO - Connecting to the database at sqlite:///app.db?check_same_thread=False
