@@ -20,7 +20,7 @@ def create_app():
     from api.blueprints import apps, users
     from api.blueprints import errors as api_errors
 
-    api_url_prefix = "/api"
+    api_url_prefix = "/v1"
     app.register_blueprint(api_errors.blueprint)
     app.register_blueprint(apps.blueprint, url_prefix=api_url_prefix)
     app.register_blueprint(users.blueprint, url_prefix=api_url_prefix)
