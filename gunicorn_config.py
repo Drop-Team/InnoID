@@ -13,3 +13,11 @@ def when_ready(server):
 
 def child_exit(server, worker):
     GunicornPrometheusMetrics.mark_process_dead_on_child_exit(worker.pid)
+
+
+def on_starting(server):
+    for fn in os.listdir(os.getenv("PROMETHEUS_MULTIPROC_DIR")):
+        if fn == ".keep":
+            continue
+
+        os.remove(os.getenv("PROMETHEUS_MULTIPROC_DIR") + "/" + fn)
