@@ -60,6 +60,18 @@ class UserResource(Resource):
 
         return success_message({"user": UserSchema().dump(user)})
 
+    @auth_check(APIPermissions.manage_users)
+    def delete(self, telegram_id: int, user_fields: list[int]):
+        session = create_session()
+        user = session.query(User).filter(User.telegram_id == telegram_id).first()
+        if not user:
+            raise errors.UserNotFoundError
+
+        session.delete(user)
+        session.commit()
+
+        return success_message({"user": UserSchema().dump(user)})
+
 
 class UsersListResource(Resource):
     @auth_check(APIPermissions.manage_users)
