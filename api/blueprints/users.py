@@ -70,6 +70,8 @@ class UserResource(Resource):
         session.delete(user)
         session.commit()
 
+        update_users_count_metric()
+
         return success_message({"user": UserSchema().dump(user)})
 
 
