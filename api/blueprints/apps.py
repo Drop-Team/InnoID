@@ -8,9 +8,9 @@ from api.database.db_session import create_session
 from api.models.apps import App, APIPermissions
 from api.schemas.apps import AppSchema
 from api.tools import errors
+from api.tools.metrics import update_apps_count_metric
 from api.tools.requests import auth_check
 from api.tools.response import success_message
-from api.tools.metrics import update_users_count_metric
 
 blueprint = Blueprint(
     "apps_resource",
@@ -59,13 +59,14 @@ class AppResource(Resource):
         session.delete(app)
         session.commit()
 
+        update_apps_count_metric()
+
         return success_message({"app": AppSchema().dump(app)})
 
 
 class AppsListResource(Resource):
     @auth_check(APIPermissions.manage_apps)
     def get(self, user_fields: list[int]):
-        update_users_count_metric()
         session = create_session()
         apps = session.query(App).all()
         return jsonify({
@@ -93,6 +94,8 @@ class AppsListResource(Resource):
 
         session.add(app)
         session.commit()
+
+        update_apps_count_metric()
 
         return success_message({"app": AppSchema().dump(app)})
 

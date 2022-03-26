@@ -7,7 +7,7 @@ import api.logger
 from api.database import db_session
 from api.flask_config import Config
 from api.tools.default_app import check_default_app
-from api.tools.metrics import update_users_count_metric, register_startup_metrics
+from api.tools.metrics import update_users_count_metric, update_apps_count_metric, register_startup_metrics
 
 app = Flask(__name__)
 metrics = GunicornPrometheusMetrics(app, path=None)
@@ -30,5 +30,6 @@ def create_app():
 
     register_startup_metrics()
     update_users_count_metric()
+    update_apps_count_metric()
 
     return app
