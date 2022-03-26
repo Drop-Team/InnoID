@@ -5,6 +5,7 @@ from flask import request
 from api.database.db_session import create_session
 from api.models.apps import App
 from api.tools import errors
+from api.tools.metrics import apps_requests
 
 
 def get_token(auth: str) -> str:
@@ -29,9 +30,13 @@ def auth_check(required_permission: int):
             if not token or not app:
                 raise errors.NoAuthError
 
+            metric_labels = [app.id, app.name, request.path]
+
             if required_permission not in decode_number(app.api_permissions):
+                apps_requests.labels(*metric_labels, "Access denied").inc()
                 raise errors.AccessDeniedError
 
+            apps_requests.labels(*metric_labels, "Success").inc()
             return func(*args, **kwargs, user_fields=decode_number(app.allowed_user_fields))
 
         return decorator
