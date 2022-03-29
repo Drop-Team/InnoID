@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from flask import Flask
+from flask_cors import CORS
 from prometheus_flask_exporter.multiprocess import GunicornPrometheusMetrics
 
 import api.logger
@@ -10,6 +11,7 @@ from api.tools.default_app import check_default_app
 from api.tools.metrics import update_users_count_metric, update_apps_count_metric, register_startup_metrics
 
 app = Flask(__name__)
+cors = CORS(app)
 metrics = GunicornPrometheusMetrics(app, path=None)
 
 
