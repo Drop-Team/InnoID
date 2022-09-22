@@ -6,9 +6,11 @@ from aiogram import Bot
 
 from bot.metrics import Metrics
 from bot.tools.users import get_user, decrypt_telegram_id
+from bot.logger import logger
 
 
 async def process_authorization_code(bot: Bot, code: str, telegram_id: int):
+    data = None
     access_token = None
     mail = None
     already_authorized_msg = "You already authorized."
@@ -36,6 +38,7 @@ async def process_authorization_code(bot: Bot, code: str, telegram_id: int):
                 data = await response.json()
                 access_token = data.get("access_token", None)
         if not access_token:
+            logger.info(f"Cannot get access token during authorization (response: {response.status}, data: {data})")
             return await bot.send_message(telegram_id, fail_msg)
 
         async with session.get(
@@ -47,6 +50,7 @@ async def process_authorization_code(bot: Bot, code: str, telegram_id: int):
                 mail = data.get("mail", None)
 
         if not mail:
+            logger.info(f"Cannot get mail during authorization (response: {response.status}, data: {data})")
             return await bot.send_message(telegram_id, fail_msg)
 
     user.is_authorized = True
@@ -54,6 +58,7 @@ async def process_authorization_code(bot: Bot, code: str, telegram_id: int):
 
     save_result = user.save()
     if not save_result:
+        logger.info(f"Cannot save results during authorization")
         return await bot.send_message(telegram_id, fail_msg)
 
     await bot.send_message(telegram_id, success_msg.format(mail))
