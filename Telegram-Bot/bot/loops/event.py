@@ -58,7 +58,7 @@ async def process_authorization_code(bot: Bot, code: str, telegram_id: int):
 
     save_result = user.save()
     if not save_result:
-        logger.info(f"Cannot save results during authorization")
+        logger.info(f"Cannot save results during authorization (mail: {mail})")
         return await bot.send_message(telegram_id, fail_msg)
 
     await bot.send_message(telegram_id, success_msg.format(mail))
