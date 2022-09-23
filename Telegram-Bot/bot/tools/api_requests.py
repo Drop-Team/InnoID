@@ -2,6 +2,8 @@ import os
 
 import requests
 
+from bot.logger import logger
+
 
 class ApiRequest:
     """Making requests to app API"""
@@ -11,7 +13,10 @@ class ApiRequest:
     def make_request(cls, *url_parts, **kwargs) -> requests.Response:
         url = os.getenv("INNOID_API_URL") + "/" + "/".join(map(str, url_parts))
         headers = {"Authorization": "Bearer {}".format(os.getenv("INNOID_API_SERVICE_APP_TOKEN"))}
-        return cls.request_function(url, headers=headers, **kwargs)
+        response = cls.request_function(url, headers=headers, **kwargs)
+        if response.status_code == 401:
+            logger.error("InnoID API returned 401 (unauthorized)")
+        return response
 
 
 class ApiGet(ApiRequest):
