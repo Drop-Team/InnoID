@@ -2,7 +2,6 @@ version: '3.9'
 services:
   api:
     build: ./API
-    container_name: api
     restart: on-failure
     ports:
       - "8001:8001"
@@ -12,9 +11,8 @@ services:
     env_file:
       - .env
 
-  requests-server:
+  longpoll:
     build: ./Longpoll
-    container_name: longpoll
     restart: on-failure
     ports:
       - "8002:8002"
@@ -24,9 +22,8 @@ services:
     env_file:
       - .env
 
-  auth-telegram-bot:
+  telegram-bot:
     build: ./Telegram-Bot
-    container_name: tg-bot
     restart: on-failure
     ports:
       - "9003:9003"
@@ -34,6 +31,6 @@ services:
       - ./Telegram-Bot:/tg-bot
     depends_on:
       - api
-      - requests-server
+      - longpoll
     env_file:
       - .env
