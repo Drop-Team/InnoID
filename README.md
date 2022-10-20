@@ -46,5 +46,5 @@ Next you need to use Docker:
 
 ```console
 docker-compose build
-docker-compose up
+docker-compose up -d
 ```
