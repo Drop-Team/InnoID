@@ -1,4 +1,4 @@
-<img src="assets/InnoID-logo.png" alt="Logo" title="Logo" align="right" height="130" />
+<img src=".assets/InnoID-logo.png" alt="Logo" title="Logo" align="right" height="130" />
 
 # InnoID
 
@@ -13,6 +13,12 @@ Unified authorization system for students and staff of Innopolis University.
 ## About
 
 InnoID is a system consisting of a REST API and a Telegram bot that uses it .
+
+<p float="left">
+  <img src=".assets/screenshot_1.jpeg" alt="Screenshot 1" height="400"/>
+  <img src=".assets/screenshot_2.jpeg" alt="Screenshot 2" height="400"/>
+  <img src=".assets/screenshot_3.jpeg" alt="Screenshot 3" height="400"/>
+</p>
 
 ### API
 Has 2 models:
