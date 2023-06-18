@@ -29,8 +29,9 @@ def setup_database():
         create_database(engine.url)
 
     from .user import models
-    from .app import models
     from .connection import models
+    from .app import models
+    from .api_key import models
     Base.metadata.create_all(bind=engine)
 
 
