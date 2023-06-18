@@ -30,6 +30,7 @@ def setup_database():
 
     from .user import models
     from .app import models
+    from .connection import models
     Base.metadata.create_all(bind=engine)
 
 
