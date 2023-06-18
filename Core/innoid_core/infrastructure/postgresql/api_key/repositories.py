@@ -21,12 +21,6 @@ class AppApiKeyRepository(IAppApiKeyRepository):
             return AppApiKeyDataMapper.model_to_entity(app_api_key_model)
         return None
 
-    def get_by_hashed_value(self, hashed_value: str) -> Optional[AppApiKey]:
-        app_api_key_model = self.session.query(AppApiKeyModel).filter_by(hashed_value=hashed_value).one_or_none()
-        if app_api_key_model:
-            return AppApiKeyDataMapper.model_to_entity(app_api_key_model)
-        return None
-
     def add(self, app_api_key: AppApiKey) -> AppApiKey:
         app_api_key_model = AppApiKeyDataMapper.entity_to_model(app_api_key)
         self.session.add(app_api_key_model)

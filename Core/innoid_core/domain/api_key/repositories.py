@@ -11,10 +11,6 @@ class IAppApiKeyRepository(ABC):
         raise NotImplementedError
 
     @abstractmethod
-    def get_by_hashed_value(self, hashed_value: str) -> Optional[AppApiKey]:
-        raise NotImplementedError
-
-    @abstractmethod
     def add(self, app_api_key: AppApiKey) -> AppApiKey:
         raise NotImplementedError
 
