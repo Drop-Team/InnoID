@@ -8,3 +8,16 @@ class Config:
     POSTGRES_CONNECTION_STRING = os.getenv(
         "POSTGRES_CONNECTION_STRING", "postgresql+psycopg2://postgres:postgres@localhost:5432/innoid_core"
     )
+
+    MS_AD_CLIENT_ID = os.getenv(
+        "MS_AD_CLIENT_ID", "..."
+    )
+    MS_AD_CLIENT_SECRET = os.getenv(
+        "MS_AD_CLIENT_SECRET", "..."
+    )
+    MS_AD_DOMAIN_HINT = os.getenv(
+        "MS_AD_DOMAIN_HINT", "innopolis.ru"
+    )
+    MS_AD_REDIRECT_URI = os.getenv(
+        "MS_AD_REDIRECT_URI", "https://innoid.dropteam.ru/login"
+    )
