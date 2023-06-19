@@ -53,6 +53,8 @@ class AppApiKeyUseCase:
         self.app_api_key_repository = app_api_key_repository
 
     def authenticate(self, original_api_key: str) -> uuid.UUID:
+        if not original_api_key or len(original_api_key) != 64:
+            raise NotAuthenticatedError()
         api_key_data = ApiKeyData.from_original_api_key(original_api_key)
         app_api_key = self.app_api_key_repository.get_by_app_id(api_key_data.app_id)
         if not app_api_key:
