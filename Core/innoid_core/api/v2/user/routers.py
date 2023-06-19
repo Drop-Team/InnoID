@@ -3,7 +3,7 @@ from typing import Annotated
 
 from fastapi import APIRouter, Depends
 
-from api.dependencies import get_user_use_case
+from api.v2.dependencies.use_cases import get_user_use_case
 from domain.user import errors as domain_errors
 from domain.user.usecases import UserUseCase
 from . import errors as api_errors
