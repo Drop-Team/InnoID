@@ -11,8 +11,11 @@ class UserPermissionUseCase:
     def __init__(self, user_permission_repository: IUserPermissionRepository):
         self.user_permission_repository = user_permission_repository
 
-    def get_user_permissions(self, user_id: uuid.UUID) -> list[UserPermission]:
-        permissions = self.user_permission_repository.get_user_permissions(user_id)
+    def get_user_permissions(self, user_id: uuid.UUID) -> list[Permission]:
+        permissions = [Permission.USER]
+        user_permissions = self.user_permission_repository.get_user_permissions(user_id)
+        for user_permission in user_permissions:
+            permissions.append(user_permission.permission)
         return permissions
 
     def add_permission(self, user_id: uuid.UUID, permission: Permission) -> UserPermission:
@@ -33,8 +36,11 @@ class AppPermissionUseCase:
     def __init__(self, app_permission_repository: IAppPermissionRepository):
         self.app_permission_repository = app_permission_repository
 
-    def get_app_permissions(self, app_id: uuid.UUID) -> list[AppPermission]:
-        permissions = self.app_permission_repository.get_app_permissions(app_id)
+    def get_app_permissions(self, app_id: uuid.UUID) -> list[Permission]:
+        permissions = [Permission.APP]
+        app_permissions = self.app_permission_repository.get_app_permissions(app_id)
+        for app_permission in app_permissions:
+            permissions.append(app_permission.permission)
         return permissions
 
     def add_permission(self, app_id: uuid.UUID, permission: Permission) -> AppPermission:

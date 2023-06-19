@@ -5,6 +5,8 @@ from dataclasses import dataclass
 
 class Permission(enum.Enum):
     ADMIN = "ADMIN"
+    USER = "USER"
+    APP = "APP"
 
 
 @dataclass
