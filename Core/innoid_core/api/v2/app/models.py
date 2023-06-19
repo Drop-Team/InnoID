@@ -9,6 +9,13 @@ class App(BaseModel):
     owner_id: uuid.UUID
 
 
+class AppWithApiKey(BaseModel):
+    app_id: uuid.UUID
+    name: str
+    owner_id: uuid.UUID
+    api_key: str
+
+
 class AppCreate(BaseModel):
     name: str
     owner_id: uuid.UUID
