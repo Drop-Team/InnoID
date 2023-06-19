@@ -3,11 +3,10 @@ from typing import Annotated
 
 from fastapi import APIRouter, Depends
 
+from api.dependencies import get_app_api_key_use_case, get_app_use_case
+from domain.api_key.usecases import AppApiKeyUseCase
 from domain.app import errors as domain_errors
 from domain.app.usecases import AppUseCase
-from domain.api_key.usecases import AppApiKeyUseCase
-from infrastructure.postgresql.app.dependencies import get_app_use_case
-from infrastructure.postgresql.api_key.dependencies import get_app_api_key_use_case
 from . import errors as api_errors
 from . import models as api_models
 

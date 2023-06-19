@@ -3,9 +3,9 @@ from typing import Annotated
 
 from fastapi import APIRouter, Depends
 
+from api.dependencies import get_user_use_case
 from domain.user import errors as domain_errors
 from domain.user.usecases import UserUseCase
-from infrastructure.postgresql.user.dependencies import get_user_use_case
 from . import errors as api_errors
 from . import models as api_models
 
