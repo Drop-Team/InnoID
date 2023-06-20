@@ -19,3 +19,9 @@ class InternalApiError(ApiError):
     error_message: str = "Internal error"
     error_code: int = 1
     http_status_code: int = status.HTTP_500_INTERNAL_SERVER_ERROR
+
+
+class NotPermittedApiError(ApiError):
+    error_message: str = "Not permitted"
+    error_code: int = 11
+    http_status_code: int = status.HTTP_403_FORBIDDEN
