@@ -1,4 +1,4 @@
-from domain.api_key.entities import AppApiKey
+from domain.app_auth.entities import AppApiKey
 from .models import AppApiKeyModel
 
 

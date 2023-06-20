@@ -5,7 +5,7 @@ from fastapi import APIRouter, Depends
 
 from api.v2.dependencies.apps import get_current_app
 from api.v2.dependencies.use_cases import get_app_api_key_use_case, get_app_use_case
-from domain.api_key.usecases import AppApiKeyUseCase
+from domain.app_auth.usecases import AppApiKeyUseCase
 from domain.app import errors as domain_errors
 from domain.app.entities import App
 from domain.app.usecases import AppUseCase

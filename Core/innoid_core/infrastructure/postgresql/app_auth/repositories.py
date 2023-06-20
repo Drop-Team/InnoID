@@ -3,8 +3,8 @@ from typing import Optional
 
 from sqlalchemy.orm.session import Session
 
-from domain.api_key.entities import AppApiKey
-from domain.api_key.repositories import IAppApiKeyRepository
+from domain.app_auth.entities import AppApiKey
+from domain.app_auth.repositories import IAppApiKeyRepository
 from .data_mappers import AppApiKeyDataMapper
 from .models import AppApiKeyModel
 

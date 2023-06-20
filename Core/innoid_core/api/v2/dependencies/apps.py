@@ -4,7 +4,7 @@ from typing import Annotated
 from fastapi import Depends
 from fastapi.security import APIKeyHeader
 
-from domain.api_key.usecases import AppApiKeyUseCase
+from domain.app_auth.usecases import AppApiKeyUseCase
 from domain.app.entities import App
 from domain.app.usecases import AppUseCase
 from domain.errors import DomainError
