@@ -18,7 +18,7 @@ def get_current_app_id(
         app_api_key_use_case: Annotated[AppApiKeyUseCase, Depends(get_app_api_key_use_case)],
 ) -> uuid.UUID | None:
     try:
-        return app_api_key_use_case.authenticate(api_key)
+        return app_api_key_use_case.authenticate_app(api_key)
     except DomainError:
         return None
 

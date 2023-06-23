@@ -7,5 +7,4 @@ from datetime import datetime
 class AppApiKey:
     app_id: uuid.UUID
     created: datetime
-    last_used: datetime
     hashed_value: str

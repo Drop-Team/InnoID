@@ -52,7 +52,7 @@ class AppApiKeyUseCase:
     def __init__(self, app_api_key_repository: IAppApiKeyRepository):
         self.app_api_key_repository = app_api_key_repository
 
-    def authenticate(self, original_api_key: str) -> uuid.UUID:
+    def authenticate_app(self, original_api_key: str) -> uuid.UUID:
         if not original_api_key or len(original_api_key) != 64:
             raise NotAuthenticatedError()
         api_key_data = ApiKeyData.from_original_api_key(original_api_key)
@@ -63,10 +63,7 @@ class AppApiKeyUseCase:
             raise NotAuthenticatedError()
         return app_api_key.app_id
 
-    def generate(self, app_id: uuid.UUID) -> str:
-        app_api_key = self.app_api_key_repository.get_by_app_id(app_id)
-        if app_api_key:
-            raise ApiKeyAlreadyExistsError()
+    def _generate_api_key(self, app_id: uuid.UUID) -> str:
         api_key_data = ApiKeyData(app_id=app_id)
         app_api_key = AppApiKey(
             app_id=app_id,
@@ -76,17 +73,16 @@ class AppApiKeyUseCase:
         self.app_api_key_repository.add(app_api_key)
         return api_key_data.original_value
 
-    def refresh(self, app_id: uuid.UUID) -> str:
+    def create_api_key(self, app_id: uuid.UUID) -> str:
+        app_api_key = self.app_api_key_repository.get_by_app_id(app_id)
+        if app_api_key:
+            raise ApiKeyAlreadyExistsError()
+        return self._generate_api_key(app_id)
+
+    def refresh_api_key(self, app_id: uuid.UUID) -> str:
         app_api_key = self.app_api_key_repository.get_by_app_id(app_id)
         if not app_api_key:
             raise ApiKeyNotFoundError()
         self.app_api_key_repository.remove(app_id)
 
-        api_key_data = ApiKeyData(app_id=app_id)
-        app_api_key = AppApiKey(
-            app_id=app_id,
-            hashed_value=api_key_data.hashed_value,
-            created=datetime.now(),
-        )
-        self.app_api_key_repository.add(app_api_key)
-        return api_key_data.original_value
+        return self._generate_api_key(app_id)

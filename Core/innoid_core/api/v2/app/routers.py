@@ -41,5 +41,5 @@ def create_app(
         app_create_model: api_models.AppCreate,
 ):
     app = app_use_case.create(name=app_create_model.name, owner_id=app_create_model.owner_id)
-    original_api_key = app_api_key_use_case.generate(app_id=app.app_id)
+    original_api_key = app_api_key_use_case.create_api_key(app_id=app.app_id)
     return api_models.AppWithApiKey(app_id=app.app_id, name=app.name, owner_id=app.owner_id, api_key=original_api_key)
