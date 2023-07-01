@@ -22,6 +22,3 @@ class Config:
     MS_AD_DOMAIN_HINT = os.getenv(
         "MS_AD_DOMAIN_HINT", "innopolis.ru"
     )
-    MS_AD_REDIRECT_URI = os.getenv(
-        "MS_AD_REDIRECT_URI", "https://innoid.dropteam.ru/login"
-    )

@@ -17,7 +17,7 @@ class SsoIdentityUserResult:
     job: str
 
 
-def get_uri(context: dict) -> str:
+def get_uri(redirect_uri: str, context: dict) -> str:
     context_str = json.dumps(context)
     context_b64 = base64.b64encode(context_str.encode('utf-8')).decode('utf-8')
     uri = "https://login.microsoftonline.com/organizations/oauth2/v2.0/authorize" \
@@ -29,7 +29,7 @@ def get_uri(context: dict) -> str:
           "scope=User.ReadBasic.All" \
           "&state={state}" \
         .format(client_id=Config.MS_AD_CLIENT_ID,
-                redirect_uri=quote_plus(Config.MS_AD_REDIRECT_URI),
+                redirect_uri=quote_plus(redirect_uri),
                 domain_hint=quote_plus(Config.MS_AD_DOMAIN_HINT),
                 state=quote_plus(context_b64))
     return uri
