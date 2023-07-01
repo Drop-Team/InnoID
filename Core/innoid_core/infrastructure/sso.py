@@ -1,7 +1,8 @@
 import base64
+import json
 from dataclasses import dataclass
 from urllib.parse import quote_plus
-import json
+
 import requests
 
 from config import Config
@@ -15,6 +16,10 @@ class SsoIdentityUserResult:
     surname: str
     display_name: str
     job: str
+
+
+class SsoLoginError(Exception):
+    pass
 
 
 def get_uri(redirect_uri: str, context: dict) -> str:
@@ -34,7 +39,8 @@ def get_uri(redirect_uri: str, context: dict) -> str:
                 state=quote_plus(context_b64))
     return uri
 
-def process_authorization_code(code: str, state: str) -> SsoIdentityUserResult:
+
+def get_user_info(code: str, state: str, redirect_uri: str) -> SsoIdentityUserResult:
     context_str = base64.b64decode(state).decode('utf-8')
     context = json.loads(context_str)
 
@@ -42,7 +48,7 @@ def process_authorization_code(code: str, state: str) -> SsoIdentityUserResult:
         "https://login.microsoftonline.com/organizations/oauth2/v2.0/token",
         data={
             "client_id": Config.MS_AD_CLIENT_ID,
-            "redirect_uri": Config.MS_AD_REDIRECT_URI,
+            "redirect_uri": redirect_uri,
             "grant_type": "authorization_code",
             "client_secret": Config.MS_AD_CLIENT_SECRET,
             "code": code
@@ -50,13 +56,14 @@ def process_authorization_code(code: str, state: str) -> SsoIdentityUserResult:
     )
     res_data = res.json()
     access_token = res_data.get("access_token", None)
+    if not access_token:
+        raise SsoLoginError("Error during fetching access token")
 
     res = requests.get(
         "https://graph.microsoft.com/v1.0/me",
         headers={"Authorization": f"Bearer {access_token}"}
     )
     res_data = res.json()
-    print(res_data)
 
     return SsoIdentityUserResult(
         context=context,
