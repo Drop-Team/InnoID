@@ -1,17 +1,19 @@
 from typing import Iterator
 
-from domain.app_auth.usecases import AppApiKeyUseCase
 from domain.app.usecases import AppUseCase
+from domain.app_auth.usecases import AppApiKeyUseCase
 from domain.connection.usecases import TelegramConnectionUseCase
 from domain.identity.usecases import SsoIdentityUseCase
 from domain.permission.usecases import UserPermissionUseCase, AppPermissionUseCase
 from domain.user.usecases import UserUseCase
-from infrastructure.postgresql.app_auth.repositories import AppApiKeyRepository
+from domain.user_auth.usecases import UserTokenUseCase
 from infrastructure.postgresql.app.repositories import AppRepository
+from infrastructure.postgresql.app_auth.repositories import AppApiKeyRepository
 from infrastructure.postgresql.connection.repositories import TelegramConnectionRepository
 from infrastructure.postgresql.database import SessionLocal
 from infrastructure.postgresql.permission.repositories import UserPermissionRepository, AppPermissionRepository
 from infrastructure.postgresql.user.repositories import UserRepository
+from infrastructure.postgresql.user_auth.repositories import UserRefreshTokenRepository
 
 
 def get_user_use_case() -> Iterator[UserUseCase]:
@@ -62,5 +64,13 @@ def get_app_api_key_use_case() -> Iterator[AppApiKeyUseCase]:
     session = SessionLocal()
     try:
         yield AppApiKeyUseCase(AppApiKeyRepository(session))
+    finally:
+        session.close()
+
+
+def get_user_token_use_case() -> Iterator[UserTokenUseCase]:
+    session = SessionLocal()
+    try:
+        yield UserTokenUseCase(UserRefreshTokenRepository(session))
     finally:
         session.close()
