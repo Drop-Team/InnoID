@@ -9,6 +9,10 @@ class Config:
         "POSTGRES_CONNECTION_STRING", "postgresql+psycopg2://postgres:postgres@localhost:5432/innoid_core"
     )
 
+    JWT_SECRET_KEY = os.getenv(
+        "JWT_SECRET_KEY", "..."
+    )
+
     MS_AD_CLIENT_ID = os.getenv(
         "MS_AD_CLIENT_ID", "..."
     )
