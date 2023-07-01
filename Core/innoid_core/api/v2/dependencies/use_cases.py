@@ -3,7 +3,6 @@ from typing import Iterator
 from domain.app.usecases import AppUseCase
 from domain.app_auth.usecases import AppApiKeyUseCase
 from domain.connection.usecases import TelegramConnectionUseCase
-from domain.identity.usecases import SsoIdentityUseCase
 from domain.permission.usecases import UserPermissionUseCase, AppPermissionUseCase
 from domain.user.usecases import UserUseCase
 from domain.user_auth.usecases import UserTokenUseCase
@@ -54,10 +53,6 @@ def get_telegram_connection_use_case() -> Iterator[TelegramConnectionUseCase]:
         yield TelegramConnectionUseCase(TelegramConnectionRepository(session))
     finally:
         session.close()
-
-
-def get_sso_identity_use_case() -> Iterator[SsoIdentityUseCase]:
-    yield SsoIdentityUseCase()
 
 
 def get_app_api_key_use_case() -> Iterator[AppApiKeyUseCase]:
