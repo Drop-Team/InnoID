@@ -4,17 +4,18 @@ version = "0.1.0dev1"
 description = ""
 authors = ["Egor Kuziakov <egor.kuziakov@gmail.com>"]
 readme = "README.md"
-packages = [{include = "innoid_core"}]
+packages = []
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.11"
 sqlalchemy = "^2.0.16"
 sqlalchemy-utils = "^0.41.1"
 fastapi = "^0.97.0"
 uvicorn = "^0.22.0"
-psycopg2 = "^2.9.6"
 requests = "^2.31.0"
 passlib = "^1.7.4"
+pyjwt = "^2.7.0"
+psycopg2-binary = "^2.9.6"
 
 
 [build-system]
