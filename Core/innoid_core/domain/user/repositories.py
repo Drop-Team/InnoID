@@ -11,6 +11,10 @@ class IUserRepository(ABC):
         raise NotImplementedError
 
     @abstractmethod
+    def get_by_email(self, email: str) -> Optional[User]:
+        raise NotImplementedError
+
+    @abstractmethod
     def get_list(self, offset: int, limit: int) -> list[User]:
         raise NotImplementedError
 

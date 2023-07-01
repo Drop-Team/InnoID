@@ -17,6 +17,12 @@ class UserUseCase:
             raise UserNotFoundError()
         return user
 
+    def get_by_email(self, email: str) -> User:
+        user = self.user_repository.get_by_email(email)
+        if not user:
+            raise UserNotFoundError()
+        return user
+
     def get_list(self, offset: int = 0, limit: int = 100) -> list[User]:
         return self.user_repository.get_list(offset, limit)
 
