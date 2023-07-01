@@ -1,0 +1,26 @@
+version: '3.9'
+services:
+  postgres:
+    image: postgres:15.3-alpine3.18
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "5432:5432"
+
+  core:
+    build:
+      target: development
+      context: ./Core
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./Core:/source/
+    env_file:
+      - .env
+    depends_on:
+      - postgres
+    logging:
+      options:
+        max-size: "50m"
+
