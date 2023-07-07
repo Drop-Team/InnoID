@@ -6,6 +6,7 @@ from domain.connection.usecases import TelegramConnectionUseCase
 from domain.permission.usecases import UserPermissionUseCase, AppPermissionUseCase
 from domain.user.usecases import UserUseCase
 from domain.user_auth.usecases import UserTokenUseCase
+from domain.user_identification.usecases import UserCodeIdentificationUseCase
 from infrastructure.postgresql.app.repositories import AppRepository
 from infrastructure.postgresql.app_auth.repositories import AppApiKeyRepository
 from infrastructure.postgresql.connection.repositories import TelegramConnectionRepository
@@ -13,6 +14,7 @@ from infrastructure.postgresql.database import SessionLocal
 from infrastructure.postgresql.permission.repositories import UserPermissionRepository, AppPermissionRepository
 from infrastructure.postgresql.user.repositories import UserRepository
 from infrastructure.postgresql.user_auth.repositories import UserRefreshTokenRepository
+from infrastructure.postgresql.user_identification.repositories import UserCodeIdentificationRepository
 
 
 def get_user_use_case() -> Iterator[UserUseCase]:
@@ -67,5 +69,13 @@ def get_user_token_use_case() -> Iterator[UserTokenUseCase]:
     session = SessionLocal()
     try:
         yield UserTokenUseCase(UserRefreshTokenRepository(session))
+    finally:
+        session.close()
+
+
+def get_user_code_identification_use_case() -> Iterator[UserCodeIdentificationUseCase]:
+    session = SessionLocal()
+    try:
+        yield UserCodeIdentificationUseCase(UserCodeIdentificationRepository(session))
     finally:
         session.close()
