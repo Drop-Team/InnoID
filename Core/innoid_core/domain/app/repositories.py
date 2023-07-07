@@ -15,6 +15,10 @@ class IAppRepository(ABC):
         raise NotImplementedError
 
     @abstractmethod
+    def get_by_owner_id(self, owner_id: uuid.UUID) -> list[App]:
+        raise NotImplementedError
+
+    @abstractmethod
     def add(self, app: App) -> App:
         raise NotImplementedError
 

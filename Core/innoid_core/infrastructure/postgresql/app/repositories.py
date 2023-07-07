@@ -25,6 +25,10 @@ class AppRepository(IAppRepository):
         app_models = self.session.query(AppModel).offset(offset).limit(limit).all()
         return list(map(AppDataMapper.model_to_entity, app_models))
 
+    def get_by_owner_id(self, owner_id: uuid.UUID) -> list[App]:
+        app_models = self.session.query(AppModel).filter_by(owner_id=owner_id).all()
+        return list(map(AppDataMapper.model_to_entity, app_models))
+
     def add(self, app: App) -> App:
         app_model = AppDataMapper.entity_to_model(app)
         self.session.add(app_model)

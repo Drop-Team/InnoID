@@ -20,6 +20,9 @@ class AppUseCase:
     def get_list(self, offset: int = 0, limit: int = 100) -> list[App]:
         return self.app_repository.get_list(offset, limit)
 
+    def get_by_owner_id(self, owner_id: uuid.UUID) -> list[App]:
+        return self.app_repository.get_by_owner_id(owner_id)
+
     def create(self, name: str, owner_id: uuid.UUID) -> App:
         app = App(
             app_id=self.app_repository.next_id(),
