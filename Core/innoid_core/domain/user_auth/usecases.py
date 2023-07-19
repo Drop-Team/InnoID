@@ -13,7 +13,7 @@ from .entities import UserRefreshToken
 from .errors import NotAuthenticatedError, RefreshTokenNotFoundError, RefreshTokenExpiredError, AccessTokenExpiredError
 from .repositories import IUserRefreshTokenRepository
 
-ACCESS_TOKEN_EXPIRATION = timedelta(minutes=30)
+ACCESS_TOKEN_EXPIRATION = timedelta(minutes=300)
 REFRESH_TOKEN_EXPIRATION = timedelta(days=30)
 
 
