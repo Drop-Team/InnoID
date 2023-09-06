@@ -6,9 +6,9 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, Session
 from sqlalchemy_utils import database_exists, create_database
 
-from config import Config
+from settings import settings
 
-SQLALCHEMY_DATABASE_URL = Config.POSTGRES_CONNECTION_STRING
+SQLALCHEMY_DATABASE_URL = settings.postgres_connection_string
 
 engine = create_engine(
     SQLALCHEMY_DATABASE_URL
@@ -28,10 +28,12 @@ def setup_database():
     if not database_exists(engine.url):
         create_database(engine.url)
 
-    from .user import models
-    from .connection import models
-    from .app import models
-    from .app_auth import models
+    from infrastructure.postgresql.modules.user import models
+    from infrastructure.postgresql.modules.connection.telegram import models
+    from infrastructure.postgresql.modules.code_identification import models
+    from infrastructure.postgresql.modules.app import models
+    from infrastructure.postgresql.modules.auth.jwt import models
+    from infrastructure.postgresql.modules.auth.api_key import models
     Base.metadata.create_all(bind=engine)
 
 

@@ -1,20 +1,22 @@
 from typing import Iterator
 
-from domain.app.usecases import AppUseCase
-from domain.app_auth.usecases import AppApiKeyUseCase
-from domain.connection.usecases import TelegramConnectionUseCase
-from domain.permission.usecases import UserPermissionUseCase, AppPermissionUseCase
-from domain.user.usecases import UserUseCase
-from domain.user_auth.usecases import UserTokenUseCase
-from domain.user_identification.usecases import UserCodeIdentificationUseCase
-from infrastructure.postgresql.app.repositories import AppRepository
-from infrastructure.postgresql.app_auth.repositories import AppApiKeyRepository
-from infrastructure.postgresql.connection.repositories import TelegramConnectionRepository
+from domain.modules.app.usecases import AppUseCase
+from domain.modules.auth.api_key.usecases import AuthApiKeyUseCase
+from domain.modules.auth.jwt.usecases import AuthJWTUseCase
+from domain.modules.code_identification.usecases import UserCodeIdentificationUseCase
+from domain.modules.connection.telegram.usecases import TelegramConnectionUseCase
+from domain.modules.login.sso.usecases import LoginSSOUseCase
+from domain.modules.role.usecases import UserRoleUseCase, AppRoleUseCase
+from domain.modules.user.usecases import UserUseCase
+from infrastructure.microsoft_ad.external_users import MSADExternalUsers
 from infrastructure.postgresql.database import SessionLocal
-from infrastructure.postgresql.permission.repositories import UserPermissionRepository, AppPermissionRepository
-from infrastructure.postgresql.user.repositories import UserRepository
-from infrastructure.postgresql.user_auth.repositories import UserRefreshTokenRepository
-from infrastructure.postgresql.user_identification.repositories import UserCodeIdentificationRepository
+from infrastructure.postgresql.modules.app.repositories import AppRepository
+from infrastructure.postgresql.modules.auth.api_key.repositories import ApiKeyRepository
+from infrastructure.postgresql.modules.auth.jwt.repositories import JWTRefreshTokenRepository
+from infrastructure.postgresql.modules.code_identification.repositories import UserCodeIdentificationRepository
+from infrastructure.postgresql.modules.connection.telegram.repositories import TelegramConnectionRepository
+from infrastructure.postgresql.modules.role.repositories import UserRoleRepository, AppRoleRepository
+from infrastructure.postgresql.modules.user.repositories import UserRepository
 
 
 def get_user_use_case() -> Iterator[UserUseCase]:
@@ -33,18 +35,18 @@ def get_app_use_case() -> Iterator[AppUseCase]:
         session.close()
 
 
-def get_user_permission_use_case() -> Iterator[UserPermissionUseCase]:
+def get_user_role_use_case() -> Iterator[UserRoleUseCase]:
     session = SessionLocal()
     try:
-        yield UserPermissionUseCase(UserPermissionRepository(session))
+        yield UserRoleUseCase(UserRoleRepository(session))
     finally:
         session.close()
 
 
-def get_app_permission_use_case() -> Iterator[AppPermissionUseCase]:
+def get_app_role_use_case() -> Iterator[AppRoleUseCase]:
     session = SessionLocal()
     try:
-        yield AppPermissionUseCase(AppPermissionRepository(session))
+        yield AppRoleUseCase(AppRoleRepository(session))
     finally:
         session.close()
 
@@ -57,18 +59,18 @@ def get_telegram_connection_use_case() -> Iterator[TelegramConnectionUseCase]:
         session.close()
 
 
-def get_app_api_key_use_case() -> Iterator[AppApiKeyUseCase]:
+def get_auth_jwt_use_case() -> Iterator[AuthJWTUseCase]:
     session = SessionLocal()
     try:
-        yield AppApiKeyUseCase(AppApiKeyRepository(session))
+        yield AuthJWTUseCase(JWTRefreshTokenRepository(session))
     finally:
         session.close()
 
 
-def get_user_token_use_case() -> Iterator[UserTokenUseCase]:
+def get_auth_api_key_use_case() -> Iterator[AuthApiKeyUseCase]:
     session = SessionLocal()
     try:
-        yield UserTokenUseCase(UserRefreshTokenRepository(session))
+        yield AuthApiKeyUseCase(ApiKeyRepository(session))
     finally:
         session.close()
 
@@ -79,3 +81,7 @@ def get_user_code_identification_use_case() -> Iterator[UserCodeIdentificationUs
         yield UserCodeIdentificationUseCase(UserCodeIdentificationRepository(session))
     finally:
         session.close()
+
+
+def get_login_sso_use_case() -> Iterator[LoginSSOUseCase]:
+    yield LoginSSOUseCase(MSADExternalUsers())
